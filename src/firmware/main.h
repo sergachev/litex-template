@@ -1,0 +1,4 @@
+#ifndef FIRMWARE_MAIN_H
+#define FIRMWARE_MAIN_H
+
+#endif //FIRMWARE_MAIN_H
