@@ -4,12 +4,11 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-litex = {path = "./lib/litex"}
-migen = {path = "./lib/migen"}
-litedram = {path = "./lib/litedram"}
+litex = {editable = true,path = "./lib/litex"}
+litedram = {editable = true,path = "./lib/litedram"}
+migen = {editable = true,path = "./lib/migen"}
 
 [packages]
-litex = {path = "./lib/litex"}
 
 [requires]
 python_version = "3.7"
