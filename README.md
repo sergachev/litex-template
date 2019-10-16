@@ -1,10 +1,10 @@
-### Template project for [litex](https://github.com/enjoy-digital/litex) - based SoCs
+### Template project for [litex](https://github.com/enjoy-digital/litex)-based SoCs
 
 Contains a small but complete example SoC project (firmware + gateware) and a very minimal
 environment to build it.
 
 #### Details:
-- `litex`-related repositories are registered as git submodules so that their
+- repositories related to `litex` are registered as git submodules so that their
 exact versions are tracked
 - a `pipenv` environment is used so that your system is kept untoched, 
 you can have several such projects using different versions of `litex` 
