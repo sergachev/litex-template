@@ -23,3 +23,6 @@ gateware:
 
 boot:
 		pipenv run litex_term --serial-boot --kernel $(soc_dir)/software/firmware/firmware.bin /dev/ttyUSB0
+
+sim:
+		pipenv run python src/main.py --sim

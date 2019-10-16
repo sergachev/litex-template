@@ -26,10 +26,7 @@ int main(void) {
     irq_setie(1);
     uart_init();
 
-    printf("device dna: %llx\n", dna_id_read());
-
     while (1) {
-        printf("t: %d\n", xadc_temperature_read() * 504 / 4096 - 273);
         gpio_led_out_write(i++);
         busy_wait_us(1000000);
     }
