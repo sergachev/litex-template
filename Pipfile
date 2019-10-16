@@ -7,6 +7,8 @@ verify_ssl = true
 litex = {editable = true,path = "./lib/litex"}
 litedram = {editable = true,path = "./lib/litedram"}
 migen = {editable = true,path = "./lib/migen"}
+liteeth = {editable = true,path = "./lib/liteeth"}
+litescope = {editable = true,path = "./lib/litescope"}
 
 [packages]
 

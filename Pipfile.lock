@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "69af638e1c218b4bf9f2f204e611fa655cdbf387a53f220b0a8e1beb4a0f1f4a"
+            "sha256": "1e19b9d93e2bcc4ed576fa5f7a2d427f60a7d42bcee0586e6be6c64e1af87b17"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -84,6 +84,14 @@
         "litedram": {
             "editable": true,
             "path": "./lib/litedram"
+        },
+        "liteeth": {
+            "editable": true,
+            "path": "./lib/liteeth"
+        },
+        "litescope": {
+            "editable": true,
+            "path": "./lib/litescope"
         },
         "litex": {
             "editable": true,
