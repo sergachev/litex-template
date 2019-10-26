@@ -1,5 +1,3 @@
 riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/
 riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
-soc_basesoc_platform1/
-soc_basesoc_sim_platform2/
-/lib/litex_setup.py
+soc_*/

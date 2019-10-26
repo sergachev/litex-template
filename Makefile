@@ -13,7 +13,7 @@ clean:
 		rm -r $(soc_dir)
 
 update:
-		cd lib && cp -f litex/litex_setup.py . && python3 litex_setup.py update
+		git submodule update --remote
 
 firmware:
 		pipenv run python src/main.py
