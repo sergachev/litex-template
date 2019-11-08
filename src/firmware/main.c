@@ -26,6 +26,8 @@ int main(void) {
     irq_setie(1);
     uart_init();
 
+    puts("firmware started");
+
     while (1) {
         gpio_led_out_write(i++);
         busy_wait_us(1000000);
