@@ -19,7 +19,13 @@ _io = [
         Subsignal("sink_ready", SimPins()),
         Subsignal("sink_data", SimPins(8)),
      ),
-    ("user_led", 0, SimPins(1)),
+    ("user_led", 0, SimPins()),
+    ('spi', 0,
+     Subsignal('clk', SimPins()),
+     Subsignal('mosi', SimPins()),
+     Subsignal('miso', SimPins()),
+     Subsignal('cs_n', SimPins()),
+     ),
 ]
 
 

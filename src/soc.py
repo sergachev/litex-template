@@ -1,11 +1,13 @@
 from migen.genlib.io import CRG
 from litex.soc.integration.soc_core import SoCCore
 from litex.soc.cores import gpio, uart
+from litex.soc.cores.spi import SPIMaster
 
 
 class BaseSoC(SoCCore):
     csr_map = {
         "gpio_led": 14,
+        'spi_master': 15,
     }
     csr_map.update(SoCCore.csr_map)
 
@@ -26,3 +28,5 @@ class BaseSoC(SoCCore):
         self.add_csr("uart")
         self.add_interrupt("uart")
         self.add_constant("ROM_BOOT_ADDRESS", self.mem_map['main_ram'])
+        self.submodules.spi_master = SPIMaster(platform.request('spi'), data_width=40,
+                                               sys_clk_freq=sys_clk_freq, spi_clk_freq=1e3)
