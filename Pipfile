@@ -9,6 +9,7 @@ litedram = {editable = true,path = "./lib/litedram"}
 migen = {editable = true,path = "./lib/migen"}
 liteeth = {editable = true,path = "./lib/liteeth"}
 litescope = {editable = true,path = "./lib/litescope"}
+litepcie = {editable = true,path = "./lib/litepcie"}
 
 [packages]
 
