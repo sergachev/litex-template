@@ -12,6 +12,9 @@ _io = [
     ('trigger', 0, Pins(1)),
 ]
 
+REG_CMD = 0b00100
+CMD_IPROG = 0b01111
+
 
 class SoC(Module):
     def __init__(self, platform):
@@ -22,8 +25,8 @@ class SoC(Module):
             self.cd_sys.rst.eq(platform.request('rst')),
             icap.send.re.eq(platform.request('trigger'))
         ]
-        icap.addr.storage.reset = 0x4
-        icap.data.storage.reset = 0xf
+        icap.addr.storage.reset = REG_CMD
+        icap.data.storage.reset = CMD_IPROG
 
 
 def export():
