@@ -11,7 +11,7 @@ all: $(TARGET).bin
 -include $(OBJECTS:.o=.d)
 
 $(TARGET).elf: $(OBJECTS)
-	$(LD) $(LDFLAGS) \
+	$(CC) $(LDFLAGS) \
 		-T $(FIRMWARE_DIRECTORY)/linker.ld \
 		-N -o $@ \
 		 ../libbase/crt0-$(CPU)-ctr.o \
