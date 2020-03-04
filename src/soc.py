@@ -11,10 +11,10 @@ class BaseSoC(SoCCore):
 
     def __init__(self, platform, cpu, sim: bool, **kwargs):
         sys_clk_freq = int(1e9 / platform.default_clk_period)
+        kwargs['with_uart'] = not sim
         SoCCore.__init__(self, platform,
                          cpu_type=cpu.name,
                          clk_freq=sys_clk_freq,
-                         with_uart=not sim,
                          **kwargs)
         self.submodules.crg = CRG(platform.request(platform.default_clk_name))
         self.submodules.gpio_led = gpio.GPIOOut(platform.request("user_led"))
