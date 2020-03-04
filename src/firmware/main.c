@@ -10,26 +10,28 @@
 
 
 static void busy_wait_us(unsigned int ds) {
-        timer0_en_write(0);
-        timer0_reload_write(0);
-        timer0_load_write(CONFIG_CLOCK_FREQUENCY / 1000000 * ds);
-        timer0_en_write(1);
-        timer0_update_value_write(1);
-        while (timer0_value_read())
-                timer0_update_value_write(1);
+	timer0_en_write(0);
+	timer0_reload_write(0);
+	timer0_load_write(CONFIG_CLOCK_FREQUENCY / 1000000 * ds);
+	timer0_en_write(1);
+	timer0_update_value_write(1);
+	while (timer0_value_read())
+		timer0_update_value_write(1);
 }
 
 
 int main(void) {
-    int i = 0;
-    irq_setmask(0);
-    irq_setie(1);
-    uart_init();
+	int i = 0;
 
-    while (1) {
-        gpio_led_out_write(i++);
-        busy_wait_us(1000000);
-    }
+	irq_setmask(0);
+	irq_setie(1);
+	uart_init();
 
-    return 0;
+	while (1) {
+		puts("firmware running");
+		gpio_led_out_write(i ++);
+		busy_wait_us(1000 * 1000);
+	}
+
+	return 0;
 }
