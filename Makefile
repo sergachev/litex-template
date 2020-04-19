@@ -4,6 +4,7 @@ serial_port = /dev/ttyUSB0
 soc_dir = soc_basesoc_platform1
 riscv_tools = riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14
 export PATH := $(PWD)/$(riscv_tools)/bin:$(PATH)
+vivado = vivado -nojournal -nolog -mode batch
 
 prepare:
 		wget -nc https://static.dev.sifive.com/dev-tools/$(riscv_tools).tar.gz
@@ -26,8 +27,14 @@ gateware:
 boot:
 		pipenv run litex_term --serial-boot --kernel $(soc_dir)/software/firmware/firmware.bin $(serial_port)
 
+term:
+		pipenv run litex_term $(serial_port)
+
 sim_build:
 		pipenv run python src/main.py --sim
 
 sim:	sim_build
 		pipenv run python src/main.py --sim --run
+
+flash:
+		cd $(soc_dir)/gateware && $(vivado) -source ../../flash.tcl -tclargs top.mcs

@@ -29,12 +29,12 @@ def main():
     platform = sim_platform2.Platform() if args.sim else platform1.Platform()
     output_dir = builder_kwargs['output_dir'] = f"soc_{soc_cls.__name__.lower()}_{platform.name}"
     fw_file = os.path.join(output_dir, "software", "firmware", "firmware.bin")
-    if args.sim:
-        soc_kwargs["integrated_main_ram_size"] = 0x10000000
-        try:
-            soc_kwargs['integrated_main_ram_init'] = get_mem_data(fw_file, cpu.endianness)
-        except FileNotFoundError:
-            pass
+    soc_kwargs['integrated_rom_size'] = 32 * 1024
+    soc_kwargs["integrated_main_ram_size"] = 16 * 1024
+    try:
+        soc_kwargs['integrated_main_ram_init'] = get_mem_data(fw_file, cpu.endianness)
+    except FileNotFoundError:
+        pass
     soc = BaseSoC(platform, cpu=cpu, sim=args.sim, output_dir=output_dir, **soc_kwargs)
     builder = Builder(soc, **builder_kwargs)
     builder.add_software_package("firmware", src_dir=os.path.join(os.getcwd(), 'src', 'firmware'))
