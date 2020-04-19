@@ -45,8 +45,8 @@ class Platform(XilinxPlatform):
             ["set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]",
              "set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]"]
         self.toolchain.additional_commands = \
-            ["write_cfgmem -force -format bin -interface spix4 -size 16 "
-             "-loadbit \"up 0x0 {build_name}.bit\" -file {build_name}.bin"]
+            ["write_cfgmem -force -format mcs -interface spix4 -size 16 "
+             "-loadbit \"up 0x0 {build_name}.bit\" -file {build_name}.mcs"]
 
     def create_programmer(self):
         return VivadoProgrammer(flash_part="n25q128-3.3v-spi-x1_x2_x4")
