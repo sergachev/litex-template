@@ -15,7 +15,7 @@ clean:
 		rm -rf soc_*_platform*
 
 update:
-		git submodule update --remote
+		git submodule update --remote && pipenv update
 
 firmware:
 		pipenv run python src/main.py

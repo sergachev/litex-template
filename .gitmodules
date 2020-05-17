@@ -34,3 +34,12 @@
 [submodule "lib/litesata"]
 	path = lib/litesata
 	url = https://github.com/enjoy-digital/litesata
+[submodule "lib/pythondata-cpu-vexriscv"]
+	path = lib/pythondata-cpu-vexriscv
+	url = https://github.com/litex-hub/pythondata-cpu-vexriscv
+[submodule "lib/pythondata-misc-tapcfg"]
+	path = lib/pythondata-misc-tapcfg
+	url = https://github.com/litex-hub/pythondata-misc-tapcfg
+[submodule "lib/pythondata-software-compiler_rt"]
+	path = lib/pythondata-software-compiler_rt
+	url = https://github.com/litex-hub/pythondata-software-compiler_rt

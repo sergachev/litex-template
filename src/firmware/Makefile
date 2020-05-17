@@ -14,7 +14,7 @@ $(TARGET).elf: $(OBJECTS)
 	$(CC) $(LDFLAGS) \
 		-T $(FIRMWARE_DIRECTORY)/linker.ld \
 		-N -o $@ \
-		 ../libbase/crt0-$(CPU)-ctr.o \
+		 ../libbase/crt0-ctr.o \
 		$(OBJECTS) \
 		-L../libbase \
 		-L../libcompiler_rt \
