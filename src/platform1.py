@@ -25,6 +25,16 @@ _io = [
      ),
 
     ("spi_cs_n", 0, Pins("T19"), io_std),
+
+    ("pcie_x1", 0,
+     Subsignal("rst_n", Pins("E1"), IOStandard("LVCMOS25")),
+     Subsignal("clk_p", Pins("F6")),
+     Subsignal("clk_n", Pins("E6")),
+     Subsignal("rx_p", Pins("B10")),
+     Subsignal("rx_n", Pins("A10")),
+     Subsignal("tx_p", Pins("B6")),
+     Subsignal("tx_n", Pins("A6"))
+     ),
 ]
 
 _connectors = []
@@ -47,6 +57,7 @@ class Platform(XilinxPlatform):
         self.toolchain.additional_commands = \
             ["write_cfgmem -force -format mcs -interface spix4 -size 16 "
              "-loadbit \"up 0x0 {build_name}.bit\" -file {build_name}.mcs"]
+        self.speed_grade = speed_grade
 
     def create_programmer(self):
         return VivadoProgrammer(flash_part="n25q128-3.3v-spi-x1_x2_x4")

@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := firmware
 
 serial_port = /dev/ttyUSB0
-soc_dir = soc_basesoc_platform1
+soc_dir = build
 riscv_tools = riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14
 export PATH := $(PWD)/$(riscv_tools)/bin:$(PATH)
 vivado = vivado -nojournal -nolog -mode batch
