@@ -53,9 +53,10 @@ class Platform(XilinxPlatform):
         """)
         self.toolchain.bitstream_commands = \
             ["set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]",
-             "set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]"]
+             "set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]",
+             "set_property BITSTREAM.CONFIG.CONFIGRATE 50 [current_design]",]
         self.toolchain.additional_commands = \
-            ["write_cfgmem -force -format mcs -interface spix4 -size 16 "
+            ["write_cfgmem -force -format mcs -interface SPIx4 -size 16 "
              "-loadbit \"up 0x0 {build_name}.bit\" -file {build_name}.mcs"]
         self.speed_grade = speed_grade
 

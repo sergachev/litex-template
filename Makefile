@@ -12,7 +12,7 @@ prepare:
 		pipenv install --dev
 
 clean:
-		rm -rf soc_*_platform*
+		rm -rf $(soc_dir)
 
 update:
 		git submodule update --remote && pipenv update
@@ -37,4 +37,4 @@ sim:	sim_build
 		pipenv run python src/main.py --sim --run
 
 flash:
-		cd $(soc_dir)/gateware && $(vivado) -source ../../flash.tcl -tclargs top.mcs
+		cd $(soc_dir)/gateware && $(vivado) -source ../../flash.tcl -tclargs platform1.mcs
