@@ -22,8 +22,8 @@ firmware:
 		poetry run python src/main.py
 
 gateware:
-		poetry run python src/main.py --build_gateware && \
-		grep -i "All user specified timing constraints are met" $(soc_dir)/gateware/vivado.log
+		poetry run /usr/bin/time -f "%E" python src/main.py --build_gateware && \
+		grep -i "All user specified timing constraints are met" $(soc_dir)/gateware/vivado.log; notify-send "done"
 
 boot:
 		poetry run litex_term --serial-boot --kernel $(soc_dir)/software/firmware/firmware.bin $(serial_port)
@@ -38,4 +38,4 @@ sim:	sim_build
 		poetry run python src/main.py --sim --run
 
 flash:
-		cd $(soc_dir)/gateware && $(vivado) -source ../../flash.tcl -tclargs platform1.mcs
+		cd $(soc_dir)/gateware && $(vivado) -source ../../flash.tcl -tclargs platform1.mcs; notify-send "done"

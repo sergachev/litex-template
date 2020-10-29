@@ -3,7 +3,7 @@ include $(SOC_DIRECTORY)/software/common.mak
 
 TARGET   = firmware
 OBJECTS  = isr.o main.o
-CFLAGS += -Wall -Wextra
+CFLAGS += -Wall -Wextra -Wno-strict-prototypes
 
 all: $(TARGET).bin
 
@@ -14,7 +14,7 @@ $(TARGET).elf: $(OBJECTS)
 	$(CC) $(LDFLAGS) \
 		-T $(FIRMWARE_DIRECTORY)/linker.ld \
 		-N -o $@ \
-		 ../libbase/crt0-ctr.o \
+		 ../libbase/crt0.o \
 		$(OBJECTS) \
 		-L../libbase \
 		-L../libcompiler_rt \
