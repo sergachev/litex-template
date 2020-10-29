@@ -5,7 +5,7 @@ Small complete example SoC project (firmware + gateware) and a lightweight envir
 #### Features:
 -  `litex`-related repositories are registered as git submodules so that their
 exact versions are tracked
-- a `pipenv` environment is used to keep your system and user Python environments clean,
+- a `poetry` environment is used to keep your system and user Python environments clean,
 therefore you can have multiple such projects using different versions of `litex` 
 repositories etc.
 - `litex`-related packages are installed in the development mode so that they can be worked on easily
@@ -20,8 +20,8 @@ repositories etc.
 
 #### Dependencies:
  - make, wget, tar
- - Python 3.7+
- - pipenv
+ - Python 3.8+
+ - poetry
  - Vivado for implementation
  - Verilator for simulation
  - optional: yosys, other litex-related tools
