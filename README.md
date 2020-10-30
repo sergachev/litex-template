@@ -6,7 +6,7 @@ Small complete example SoC project (firmware + gateware) and a lightweight envir
 -  `LiteX`-related repositories are registered as git submodules so that their
 exact versions are tracked
 - a `poetry` environment is used to keep your system and user Python environments clean,
-therefore you can have multiple such projects using different versions of `litex` 
+therefore you can have multiple such projects using different versions of `LiteX` 
 repositories etc.
 - `LiteX`-related packages are installed in the development mode so that they can be worked on easily
 - overall simple and compact (compared to [litex-buildenv](https://github.com/timvideos/litex-buildenv))
@@ -24,4 +24,4 @@ repositories etc.
  - poetry
  - Vivado for implementation
  - Verilator for simulation
- - optional: yosys, other litex-related tools
+ - optional: yosys, other LiteX-related tools
