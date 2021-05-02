@@ -10,9 +10,9 @@ pythondata-cpu-vexriscv = {git = "https://github.com/litex-hub/pythondata-cpu-ve
 pythondata-misc-tapcfg = {git = "https://github.com/litex-hub/pythondata-misc-tapcfg.git"}
 
 [tool.poetry.dev-dependencies]
-litex = {path = "lib/litex"}
-litepcie = {path = "lib/litepcie"}
+litex = {path = "lib/litex", develop = true}
+litepcie = {path = "lib/litepcie", develop = true}
 
 [build-system]
-requires = ["poetry>=0.12"]
+requires = ["poetry>=1.1.5"]
 build-backend = "poetry.masonry.api"

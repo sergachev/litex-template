@@ -23,5 +23,7 @@ repositories etc.
  - Python 3.8+
  - poetry
  - Vivado for implementation
- - Verilator for simulation
+ - Verilator for simulation (see LiteX readme for additional requirements like libjson-c)
  - optional: yosys, other LiteX-related tools
+
+Tested on Ubuntu 20.04.

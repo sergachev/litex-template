@@ -1,2 +1,3 @@
-/riscv64-unknown-elf-gcc-*
-build/
+/riscv64-*.tar.gz
+/riscv/
+/build/

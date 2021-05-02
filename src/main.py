@@ -34,7 +34,7 @@ def main():
     soc_kwargs["integrated_main_ram_size"] = 16 * 1024
     try:
         soc_kwargs['integrated_main_ram_init'] = get_mem_data(fw_file, cpu.endianness)
-    except FileNotFoundError:
+    except OSError:
         pass
     soc = BaseSoC(platform, cpu=cpu, sim=args.sim, output_dir=output_dir, **soc_kwargs)
     builder = Builder(soc, **builder_kwargs)
