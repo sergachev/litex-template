@@ -3,7 +3,7 @@
 serial_port = /dev/ttyUSB0
 soc_dir = build/
 top_dir = $(PWD)
-riscv_ver = 2021.04.23
+riscv_ver = 2021.06.26
 export PATH := $(PWD)/riscv/bin:$(PATH)
 vivado = vivado -nojournal -nolog -mode batch
 

@@ -6,7 +6,7 @@
 	url = https://github.com/enjoy-digital/litevideo
 [submodule "lib/litex-boards"]
 	path = lib/litex-boards
-	url = https://github.com/litex-hub/litex-boards
+	url = https://github.com/litex-hub/litex-boards.git
 [submodule "lib/migen"]
 	path = lib/migen
 	url = https://github.com/m-labs/migen

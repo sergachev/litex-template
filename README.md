@@ -1,4 +1,4 @@
-### Template project for [LiteX](https://github.com/enjoy-digital/litex)-based SoCs
+### Template project for [LiteX](https://github.com/enjoy-digital/litex) - based SoCs
 
 Small complete example SoC project (firmware + gateware) and a lightweight environment to build it.
 

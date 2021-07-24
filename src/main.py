@@ -36,7 +36,7 @@ def main():
         soc_kwargs['integrated_main_ram_init'] = get_mem_data(fw_file, cpu.endianness)
     except OSError:
         pass
-    soc = BaseSoC(platform, cpu=cpu, sim=args.sim, output_dir=output_dir, **soc_kwargs)
+    soc = soc_cls(platform, cpu=cpu, sim=args.sim, output_dir=output_dir, **soc_kwargs)
     builder = Builder(soc, **builder_kwargs)
     builder.add_software_package("firmware", src_dir=os.path.join(os.getcwd(), 'src', 'firmware'))
     if args.sim:
