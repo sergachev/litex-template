@@ -5,9 +5,9 @@ description = ""
 authors = ["Ilia Sergachev <ilia.sergachev@protonmail.ch>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
-pythondata-cpu-vexriscv = {git = "https://github.com/litex-hub/pythondata-cpu-vexriscv.git"}
-pythondata-misc-tapcfg = {git = "https://github.com/litex-hub/pythondata-misc-tapcfg.git"}
+python = "^3.9"
+pythondata-cpu-vexriscv = "*"
+pythondata-misc-tapcfg = "*"
 
 [tool.poetry.dev-dependencies]
 litex = {path = "lib/litex", develop = true}

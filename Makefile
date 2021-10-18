@@ -3,12 +3,12 @@
 serial_port = /dev/ttyUSB0
 soc_dir = build/
 top_dir = $(PWD)
-riscv_ver = 2021.06.26
+riscv_ver = 2021.09.21
 export PATH := $(PWD)/riscv/bin:$(PATH)
 vivado = vivado -nojournal -nolog -mode batch
 
 prepare:
-	wget -nc -q https://github.com/riscv/riscv-gnu-toolchain/releases/download/$(riscv_ver)/riscv64-elf-ubuntu-20.04-nightly-$(riscv_ver)-nightly.tar.gz
+	wget -nc -q https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/$(riscv_ver)/riscv64-elf-ubuntu-20.04-nightly-$(riscv_ver)-nightly.tar.gz
 	tar xf riscv64-elf-ubuntu-20.04-nightly-$(riscv_ver)-nightly.tar.gz --skip-old-files
 	poetry install
 
