@@ -34,6 +34,19 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "litehyperbus"
+version = "0.0.0"
+description = "Small footprint and configurable HyperBus core"
+category = "main"
+optional = false
+python-versions = "~=3.6"
+develop = true
+
+[package.source]
+type = "directory"
+url = "lib/litehyperbus"
+
+[[package]]
 name = "litepcie"
 version = "0.0.0"
 description = "Small footprint and configurable PCIe core"
@@ -48,6 +61,19 @@ pyyaml = "*"
 [package.source]
 type = "directory"
 url = "lib/litepcie"
+
+[[package]]
+name = "litespi"
+version = "0.0.0"
+description = "Small footprint and configurable SPI core"
+category = "main"
+optional = false
+python-versions = "~=3.6"
+develop = true
+
+[package.source]
+type = "directory"
+url = "lib/litespi"
 
 [[package]]
 name = "litex"
@@ -67,6 +93,31 @@ requests = "*"
 [package.source]
 type = "directory"
 url = "lib/litex"
+
+[[package]]
+name = "litex-boards"
+version = "0.0.0"
+description = "LiteX supported boards"
+category = "main"
+optional = false
+python-versions = "~=3.6"
+develop = true
+
+[package.source]
+type = "directory"
+url = "lib/litex-boards"
+
+[[package]]
+name = "meson"
+version = "0.60.1"
+description = "A high performance build system"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+progress = ["tqdm"]
+typing = ["mypy", "typing-extensions"]
 
 [[package]]
 name = "migen"
@@ -115,6 +166,14 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "pythondata-software-picolibc"
+version = "0.0.post21539"
+description = "Python module containing data files for picolibc - a C library designed for embedded 32- and 64- bit systems. software."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
 name = "pyyaml"
 version = "6.0"
 description = "YAML parser and emitter for Python"
@@ -156,7 +215,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "303adae78e9bdb01f3c28b262c7ad24d47b02f8a291ae6c19d660b97141404cc"
+content-hash = "cb5f8bfb002d62258c7bc65cdb6ef68818170a59edb2043e71b367b9f63a1a43"
 
 [metadata.files]
 certifi = [
@@ -175,8 +234,15 @@ idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
 ]
+litehyperbus = []
 litepcie = []
+litespi = []
 litex = []
+litex-boards = []
+meson = [
+    {file = "meson-0.60.1-py3-none-any.whl", hash = "sha256:79a07aabd43f5934472d71921ef3470acbf6a719ba538743c505156fb27d62f6"},
+    {file = "meson-0.60.1.tar.gz", hash = "sha256:5add789c953d984b500858b2851ee3d7add0460cf1a6f852f0a721af17384e13"},
+]
 migen = [
     {file = "migen-0.9.2.tar.gz", hash = "sha256:8fdb776d3556fda82aaa95e936b54196a92afc8427564e94f5ecc34a5681085d"},
 ]
@@ -202,6 +268,11 @@ pythondata-software-compiler-rt = [
     {file = "pythondata_software_compiler_rt-0.0.post6206-py3.6.egg", hash = "sha256:da8262d3116c83b209a3b0155372a377f767d7a956fae98db82f3eded4e644d8"},
     {file = "pythondata_software_compiler_rt-0.0.post6206-py3.7.egg", hash = "sha256:f1008ef7b3e2000b80e305efaeb3c3f5ada5859961c4fbb7a59e38ee494fa7fa"},
     {file = "pythondata_software_compiler_rt-0.0.post6206-py3.8.egg", hash = "sha256:83c14009fb7a0a1417be6ae7684ade64f75d2c889cd2a40f7eacb8f826728750"},
+]
+pythondata-software-picolibc = [
+    {file = "pythondata-software-picolibc-0.0.post21539.tar.gz", hash = "sha256:506fedbb21ac1c5d6344bac030bfd45d2149a47fc007c6fd4422382d115b1dc7"},
+    {file = "pythondata_software_picolibc-0.0.post21539-py2-none-any.whl", hash = "sha256:63fcab13d6b3a2850f27024d7fff251511d63193ebceb27bbd97bca428d5606c"},
+    {file = "pythondata_software_picolibc-0.0.post21539-py3-none-any.whl", hash = "sha256:2691c4c3c06d8db3e49e5d54f105f7e2ec8d1ddff3f438817f6426d83d369ff1"},
 ]
 pyyaml = [
     {file = "PyYAML-6.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d4db7c7aef085872ef65a8fd7d6d09a14ae91f691dec3e87ee5ee0539d516f53"},

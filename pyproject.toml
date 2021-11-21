@@ -6,10 +6,15 @@ authors = ["Ilia Sergachev <ilia@sergachev.ch>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+meson = "*"
 pythondata-cpu-vexriscv = "*"
 pythondata-misc-tapcfg = "*"
+pythondata-software-picolibc = "*"
 litex = {path = "lib/litex", develop = true}
+litespi = {path = "lib/litespi", develop = true}
+litehyperbus = {path = "lib/litehyperbus", develop = true}
 litepcie = {path = "lib/litepcie", develop = true}
+litex-boards = {path = "lib/litex-boards", develop = true}
 
 [build-system]
 requires = ["poetry>=1.1.5"]

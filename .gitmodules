@@ -43,3 +43,9 @@
 [submodule "lib/pythondata-software-compiler_rt"]
 	path = lib/pythondata-software-compiler_rt
 	url = https://github.com/litex-hub/pythondata-software-compiler_rt
+[submodule "lib/litespi"]
+	path = lib/litespi
+	url = https://github.com/litex-hub/litespi.git
+[submodule "lib/litehyperbus"]
+	path = lib/litehyperbus
+	url = https://github.com/litex-hub/litehyperbus.git
