@@ -2,14 +2,12 @@
 name = "litex-template"
 version = "0.1.0"
 description = ""
-authors = ["Ilia Sergachev <ilia.sergachev@protonmail.ch>"]
+authors = ["Ilia Sergachev <ilia@sergachev.ch>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
 pythondata-cpu-vexriscv = "*"
 pythondata-misc-tapcfg = "*"
-
-[tool.poetry.dev-dependencies]
 litex = {path = "lib/litex", develop = true}
 litepcie = {path = "lib/litepcie", develop = true}
 

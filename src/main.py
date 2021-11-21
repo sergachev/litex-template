@@ -7,10 +7,10 @@ from litex.soc.integration.builder import builder_args, builder_argdict, Builder
 from litex.soc.cores.cpu import VexRiscv
 from litex.build.sim.config import SimConfig
 
-import platform1
-import sim_platform2
-from basesoc import BaseSoC
-from pciesoc import PCIeDMASoC
+import platform_xilinx
+import platform_sim
+from soc_base import BaseSoC
+from soc_pcie import PCIeDMASoC
 
 
 def main():
@@ -27,7 +27,7 @@ def main():
     args = parser.parse_args()
     builder_kwargs = builder_argdict(args)
     soc_kwargs = soc_core_argdict(args)
-    platform = sim_platform2.Platform() if args.sim else platform1.Platform()
+    platform = platform_sim.Platform() if args.sim else platform_xilinx.Platform()
     output_dir = builder_kwargs['output_dir'] = 'build'
     fw_file = os.path.join(output_dir, "software", "firmware", "firmware.bin")
     soc_kwargs['integrated_rom_size'] = 32 * 1024

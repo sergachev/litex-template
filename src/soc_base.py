@@ -21,7 +21,6 @@ class BaseSoC(SoCCore):
         self.add_constant("ROM_BOOT_ADDRESS", self.mem_map['main_ram'])
 
         if sim:
-            # Serial -----------------------------------------------------------------------------------
             self.submodules.uart_phy = uart.RS232PHYModel(platform.request("serial"))
             self.submodules.uart = uart.UART(self.uart_phy,
                                              tx_fifo_depth=kwargs["uart_fifo_depth"],

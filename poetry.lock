@@ -2,7 +2,7 @@
 name = "certifi"
 version = "2021.10.8"
 description = "Python package for providing Mozilla's CA Bundle."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -10,7 +10,7 @@ python-versions = "*"
 name = "charset-normalizer"
 version = "2.0.7"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5.0"
 
@@ -21,7 +21,7 @@ unicode_backport = ["unicodedata2"]
 name = "colorama"
 version = "0.4.4"
 description = "Cross-platform colored terminal text."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -29,7 +29,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "idna"
 version = "3.3"
 description = "Internationalized Domain Names in Applications (IDNA)"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -37,7 +37,7 @@ python-versions = ">=3.5"
 name = "litepcie"
 version = "0.0.0"
 description = "Small footprint and configurable PCIe core"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "~=3.6"
 develop = true
@@ -53,7 +53,7 @@ url = "lib/litepcie"
 name = "litex"
 version = "0.0.0"
 description = "Python SoC/Core builder for building FPGA based systems."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "~=3.6"
 develop = true
@@ -72,7 +72,7 @@ url = "lib/litex"
 name = "migen"
 version = "0.9.2"
 description = "Python toolbox for building complex digital hardware"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -83,7 +83,7 @@ colorama = "*"
 name = "pyserial"
 version = "3.5"
 description = "Python Serial Port Extension"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -110,7 +110,7 @@ python-versions = ">=3.5"
 name = "pythondata-software-compiler-rt"
 version = "0.0.post6206"
 description = "Python module containing data files for LLVM Compiler RT Module software."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -118,7 +118,7 @@ python-versions = ">=3.5"
 name = "pyyaml"
 version = "6.0"
 description = "YAML parser and emitter for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -126,7 +126,7 @@ python-versions = ">=3.6"
 name = "requests"
 version = "2.26.0"
 description = "Python HTTP for Humans."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
@@ -144,7 +144,7 @@ use_chardet_on_py3 = ["chardet (>=3.0.2,<5)"]
 name = "urllib3"
 version = "1.26.7"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
 
@@ -156,7 +156,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "a9b799428b8a559e3c6b8105191465b5471e7e5be649be00c1a30084dff9a444"
+content-hash = "303adae78e9bdb01f3c28b262c7ad24d47b02f8a291ae6c19d660b97141404cc"
 
 [metadata.files]
 certifi = [
