@@ -15,6 +15,7 @@ litespi = {path = "lib/litespi", develop = true}
 litehyperbus = {path = "lib/litehyperbus", develop = true}
 litepcie = {path = "lib/litepcie", develop = true}
 litex-boards = {path = "lib/litex-boards", develop = true}
+simplejson = "^3.17.6"
 
 [build-system]
 requires = ["poetry>=1.1.5"]
