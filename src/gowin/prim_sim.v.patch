@@ -1,0 +1,142 @@
+18a19,25
+> module GSR (GSRI);
+> input GSRI;
+> wire GSRO;
+> assign GSRO = GSRI;
+> endmodule //GSR (global set/reset control)
+> 
+> 
+23,37c30
+< table
+< // I0  I1  S     O
+<    0   ?   0  :  0 ;
+<    1   ?   0  :  1 ;
+<    x   ?   0  :  x ;
+<    ?   0   1  :  0 ;
+<    ?   1   1  :  1 ;
+<    ?   x   1  :  x ;
+<    0   0   x  :  0 ;
+<    0   1   x  :  x ;
+<    1   0   x  :  x ;
+<    1   1   x  :  1 ;
+<    ?   x   x  :  x ;
+<    x   ?   x  :  x ;
+< endtable
+---
+> assign O = S ? I1 : I0;
+400,401d392
+< 	else
+< 		deassign Q_reg;
+428,429d418
+< 	else
+< 		deassign Q_reg;
+456,457d444
+< 	else
+< 		deassign Q_reg;
+486,487d472
+< 	else
+< 		deassign Q_reg;
+516,517d500
+< 	else
+< 		deassign Q_reg;
+546,547d528
+< 	else
+< 		deassign Q_reg;
+578,579d558
+< 	else
+< 		deassign Q_reg;
+597a577
+> GSR GSR(.GSRI(1));
+607,608d586
+< 	else
+< 		deassign Q_reg;
+627a606
+> GSR GSR(.GSRI(1));
+637,638d615
+< 	else
+< 		deassign Q_reg;
+666,667d642
+< 	else
+< 		deassign Q_reg;
+694,695d668
+< 	else
+< 		deassign Q_reg;
+722,723d694
+< 	else
+< 		deassign Q_reg;
+750,751d720
+< 	else
+< 		deassign Q_reg;
+780,781d748
+< 	else
+< 		deassign Q_reg;
+810,811d776
+< 	else
+< 		deassign Q_reg;
+840,841d804
+< 	else
+< 		deassign Q_reg;
+872,873d834
+< 	else
+< 		deassign Q_reg;
+901,902d861
+< 	else
+< 		deassign Q_reg;
+931,932d889
+< 	else
+< 		deassign Q_reg;
+950a908
+> GSR GSR(.GSRI(1));
+960,961d917
+< 	else
+< 		deassign Q_reg;
+1349,1354d1304
+< 	else begin
+< 		deassign Q0_reg;
+< 		deassign Q1_reg;
+<         deassign Q0_oreg;
+< 		deassign Q1_oreg;
+< 	end
+1408,1413d1357
+< 	else begin
+< 		deassign Q0_reg;
+< 		deassign Q1_reg;
+<         deassign Q0_oreg;
+< 		deassign Q1_oreg;
+< 	end
+1471,1482d1414
+< 	else begin
+< 		deassign Dd1_2;
+< 		deassign Dd0_2;
+<         deassign Dd1_1;
+< 		deassign Dd0_1;
+<         deassign Dd1_0;
+< 		deassign Dd0_0;
+< 		deassign Ttx0;
+< 		deassign Ttx1;
+< 		deassign DT0;
+< 		deassign DT1;
+< 	end
+1561,1572d1492
+< 	else begin
+< 		deassign Dd1_2;
+< 		deassign Dd0_2;
+<         deassign Dd1_1;
+< 		deassign Dd0_1;
+<         deassign Dd1_0;
+< 		deassign Dd0_0;
+<         deassign Ttx0;
+< 		deassign Ttx1;
+< 		deassign DT0;
+< 		deassign DT1;
+< 	end
+12228,12236d12147
+< module GSR (GSRI);
+< 
+< input GSRI;
+< 
+< wire GSRO;
+< 
+< assign GSRO = GSRI;
+< 
+< endmodule //GSR (global set/reset control)
