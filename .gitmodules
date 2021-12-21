@@ -49,3 +49,6 @@
 [submodule "lib/litehyperbus"]
 	path = lib/litehyperbus
 	url = https://github.com/litex-hub/litehyperbus.git
+[submodule "lib/embeddedsw"]
+	path = lib/embeddedsw
+	url = https://github.com/Xilinx/embeddedsw.git
