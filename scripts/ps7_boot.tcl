@@ -7,6 +7,6 @@ source build/$project_name/gateware/$project_name.gen/sources_1/ip/Zynq/ps7_init
 ps7_init
 ps7_post_config
 
-# dow [lindex $argv 1]
-# con
-# fpga [lindex $argv 2]
+dow [lindex $argv 1]
+con
+fpga [lindex $argv 2]
