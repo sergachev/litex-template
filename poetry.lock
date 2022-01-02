@@ -157,7 +157,7 @@ cp2110 = ["hidapi"]
 
 [[package]]
 name = "pythondata-cpu-vexriscv"
-version = "1.0.1.post378"
+version = "1.0.1.post382"
 description = "Python module containing verilog files for VexRISCV cpu."
 category = "main"
 optional = false
@@ -165,7 +165,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "pythondata-misc-tapcfg"
-version = "0.0.post488"
+version = "0.0.post492"
 description = "Python module containing data files for Ethernet TAP Config misc."
 category = "main"
 optional = false
@@ -181,7 +181,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "pythondata-software-picolibc"
-version = "0.0.post21560"
+version = "1.7.4.post138"
 description = "Python module containing data files for picolibc - a C library designed for embedded 32- and 64- bit systems. software."
 category = "main"
 optional = false
@@ -335,14 +335,12 @@ pyserial = [
     {file = "pyserial-3.5.tar.gz", hash = "sha256:3c77e014170dfffbd816e6ffc205e9842efb10be9f58ec16d3e8675b4925cddb"},
 ]
 pythondata-cpu-vexriscv = [
-    {file = "pythondata-cpu-vexriscv-1.0.1.post378.tar.gz", hash = "sha256:9ad87400f4a0367129419489f5fd65dfc7f8f64438e3bf95f59effbc181b4eb0"},
-    {file = "pythondata_cpu_vexriscv-1.0.1.post378-py2-none-any.whl", hash = "sha256:755d425399227a559af264c07ff8567a5a67e1caac1f80783dc86835e889fa5f"},
-    {file = "pythondata_cpu_vexriscv-1.0.1.post378-py3-none-any.whl", hash = "sha256:9e14023dc69247fe1ef3ee4b8a7f246071fd0218636c889711db97d93bdbf73a"},
+    {file = "pythondata-cpu-vexriscv-1.0.1.post382.tar.gz", hash = "sha256:d2bb56af68689ef4d9878cbf56ecefb5030220bfbb4f258a38cb8229eb565fb1"},
+    {file = "pythondata_cpu_vexriscv-1.0.1.post382-py3-none-any.whl", hash = "sha256:3c663b8fa9e52c882549a88ce4b5acef7dea0a4274df7c01d4cce439f0b917bd"},
 ]
 pythondata-misc-tapcfg = [
-    {file = "pythondata-misc-tapcfg-0.0.post488.tar.gz", hash = "sha256:2a5145083a9309ab6f13d33e7d48cd1fa9afb7facf026fc56168bafe40299fe8"},
-    {file = "pythondata_misc_tapcfg-0.0.post488-py2-none-any.whl", hash = "sha256:c93296ffd95243eab06d534428ae81c778378e761f099a794c2640308b82d9a3"},
-    {file = "pythondata_misc_tapcfg-0.0.post488-py3-none-any.whl", hash = "sha256:d30796f3b79a918f83f09627276a3f5f85e84e5f4dbfa4dd079725925d1f396e"},
+    {file = "pythondata-misc-tapcfg-0.0.post492.tar.gz", hash = "sha256:11d6bb351ee788e3981840ec04df6b527d936663b4c9d4bce7186560fe4aae3a"},
+    {file = "pythondata_misc_tapcfg-0.0.post492-py3-none-any.whl", hash = "sha256:2754bc2c1ec8410bf285452705b93b72f52aa2eb55169fdb643506efadc2328e"},
 ]
 pythondata-software-compiler-rt = [
     {file = "pythondata-software-compiler_rt-0.0.post6206.tar.gz", hash = "sha256:8923634c4fcfd75b58ea134668ae98649d7272908723c34a5836037e939c99ae"},
@@ -354,9 +352,8 @@ pythondata-software-compiler-rt = [
     {file = "pythondata_software_compiler_rt-0.0.post6206-py3.8.egg", hash = "sha256:83c14009fb7a0a1417be6ae7684ade64f75d2c889cd2a40f7eacb8f826728750"},
 ]
 pythondata-software-picolibc = [
-    {file = "pythondata-software-picolibc-0.0.post21560.tar.gz", hash = "sha256:03c2c3df88d3f5a08dc7683436e62b29a25e8e7a855068b8f6325324dfd9c08f"},
-    {file = "pythondata_software_picolibc-0.0.post21560-py2-none-any.whl", hash = "sha256:c85080bbea9efe989193b8d486850e790c43a637d3c93b1ce9097606408fe618"},
-    {file = "pythondata_software_picolibc-0.0.post21560-py3-none-any.whl", hash = "sha256:89aa12da99c31f063e6cefa488247b7d3f018c20b6fbd1efc41b100ca8996148"},
+    {file = "pythondata-software-picolibc-1.7.4.post138.tar.gz", hash = "sha256:85de7253d2ec53062089e1219509cca1565239c779b7b3467cf83ea230404824"},
+    {file = "pythondata_software_picolibc-1.7.4.post138-py3-none-any.whl", hash = "sha256:efc1971821c19ba0e8606c070f1102eb674be1e5d7713e58c4c21352938d3a4c"},
 ]
 pyyaml = [
     {file = "PyYAML-6.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d4db7c7aef085872ef65a8fd7d6d09a14ae91f691dec3e87ee5ee0539d516f53"},
