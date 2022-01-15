@@ -17,12 +17,13 @@ repositories etc.
 - use `make boot` to load the compiled firmware over a serial port and get a serial terminal by means of litex_term
 - edit the SoC in `src/`; adjust targets in the `Makefile`; tweak `LiteX` cores in `lib/`
 
-#### Dependencies:
+#### External dependencies:
  - GNU Make
  - Python 3.9+
  - [poetry](https://python-poetry.org/)
  - For RISC-V cores [RISC-V GNU toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain/releases)
  - For implementation on Xilinx FPGAs: [Xilinx Vivado](https://www.xilinx.com/support/download.html) (2020.2 to 2021.2 tested)
+ - For implementation on Gowin FPGAs: [Gowin EDA](https://www.gowinsemi.com/en/support/download_eda/)
  - Verilator for simulation (see [LiteX readme](https://github.com/enjoy-digital/litex/#quick-start-guide) for additional requirements like `libjson-c`) - can be installed via [Homebrew](https://formulae.brew.sh/formula/verilator)
  - optional: [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases) - yosys for synthesis, OpenOCD and openFPGALoader for programming
 
