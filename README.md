@@ -21,10 +21,11 @@ repositories etc.
  - GNU Make
  - Python 3.9+
  - [poetry](https://python-poetry.org/)
- - [RISC-V GNU toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain/releases)
-   (extract and add `bin` to `PATH`)
- - Xilinx Vivado for implementation (2020.2 to 2021.2 tested)
- - Verilator for simulation (see LiteX readme for additional requirements like libjson-c)
- - optional: yosys, other LiteX-related tools
+ - For RISC-V cores [RISC-V GNU toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain/releases)
+ - For implementation on Xilinx FPGAs: [Xilinx Vivado](https://www.xilinx.com/support/download.html) (2020.2 to 2021.2 tested)
+ - Verilator for simulation (see [LiteX readme](https://github.com/enjoy-digital/litex/#quick-start-guide) for additional requirements like `libjson-c`) - can be installed via [Homebrew](https://formulae.brew.sh/formula/verilator)
+ - optional: [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases) - yosys for synthesis, OpenOCD and openFPGALoader for programming
+
+RISC-V GNU toolchain, Vivado and OSS CAD Suite: add respective `bin` directories to `PATH`.
 
 Tested on Ubuntu 20.04.
