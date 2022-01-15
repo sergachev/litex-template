@@ -1,0 +1,24 @@
+litex_platform = quicklogic_quickfeather
+
+export QORC_SDK = $(realpath ./lib/qorc-sdk)
+
+soc_dir = build/$(litex_platform)
+soc = poetry run python lib/litex-boards/litex_boards/targets/$(litex_platform).py
+bitstream_file = build/$(litex_platform)/gateware/$(litex_platform).bit
+
+.DEFAULT_GOAL := $(soc_dir)/software/bios/bios.bin
+.PHONY: clean $(soc_dir)/software/bios/bios.bin
+
+.venv:
+	poetry install
+
+clean:
+	rm -rf build
+
+$(soc_dir)/software/bios/bios.bin: .venv
+	$(soc)
+
+$(bitstream_file): .venv
+	PATH=$(QORC_SDK)/fpga_toolchain_install/v1.3.1/quicklogic-arch-defs/bin:$(QORC_SDK)/fpga_toolchain_install/v1.3.1/conda/bin:$(PATH) $(soc) --build; notify-send "done"
+
+gateware: $(bitstream_file)
