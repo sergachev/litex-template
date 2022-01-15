@@ -1,6 +1,6 @@
 ### Template project for [LiteX](https://github.com/enjoy-digital/litex) - based SoCs
 
-Small complete example SoC project (firmware + gateware) and a lightweight environment to build and simulate it.
+Various pieces and examples that are not in LiteX yet and a reproducible environment to build and use them.
 
 #### Features:
 -  `LiteX`-related repositories are registered as git submodules so that their
@@ -21,12 +21,13 @@ repositories etc.
  - GNU Make
  - Python 3.9+
  - [poetry](https://python-poetry.org/)
- - For RISC-V cores [RISC-V GNU toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain/releases)
+ - For RISC-V cores: [RISC-V GNU toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain/releases)
+ - For Arm cores: [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
  - For implementation on Xilinx FPGAs: [Xilinx Vivado](https://www.xilinx.com/support/download.html) (2020.2 to 2021.2 tested)
  - For implementation on Gowin FPGAs: [Gowin EDA](https://www.gowinsemi.com/en/support/download_eda/)
  - Verilator for simulation (see [LiteX readme](https://github.com/enjoy-digital/litex/#quick-start-guide) for additional requirements like `libjson-c`) - can be installed via [Homebrew](https://formulae.brew.sh/formula/verilator)
  - optional: [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases) - yosys for synthesis, OpenOCD and openFPGALoader for programming
 
-RISC-V GNU toolchain, Vivado and OSS CAD Suite: add respective `bin` directories to `PATH`.
+RISC-V GNU toolchain, GNU Arm Embedded Toolchain, Vivado, Gowin EDA and OSS CAD Suite: add respective `bin` directories to `PATH`.
 
 Tested on Ubuntu 20.04.
