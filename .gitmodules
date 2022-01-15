@@ -52,3 +52,8 @@
 [submodule "lib/embeddedsw"]
 	path = lib/embeddedsw
 	url = https://github.com/Xilinx/embeddedsw.git
+[submodule "lib/qorc-sdk"]
+	path = lib/qorc-sdk
+	url = https://github.com/QuickLogic-Corp/qorc-sdk.git
+	shallow = true
+
