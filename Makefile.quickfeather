@@ -7,13 +7,16 @@ soc = poetry run python lib/litex-boards/litex_boards/targets/$(litex_platform).
 bitstream_file = build/$(litex_platform)/gateware/$(litex_platform).bit
 
 .DEFAULT_GOAL := $(soc_dir)/software/bios/bios.bin
-.PHONY: clean $(soc_dir)/software/bios/bios.bin
+.PHONY: prepare clean $(soc_dir)/software/bios/bios.bin
 
-.venv:
-	poetry install
+.venv: prepare
 
 clean:
 	rm -rf build
+
+prepare:
+	poetry install
+	cd lib/qorc-sdk && bash -c "source envsetup.sh"
 
 $(soc_dir)/software/bios/bios.bin: .venv
 	$(soc)
