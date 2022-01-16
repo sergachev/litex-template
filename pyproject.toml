@@ -17,6 +17,7 @@ litepcie = {path = "lib/litepcie", develop = true}
 litex-boards = {path = "lib/litex-boards", develop = true}
 simplejson = "*"
 lxml = "*"
+tinyfpgab = "*"
 
 [build-system]
 requires = ["poetry>=1.1.5"]
