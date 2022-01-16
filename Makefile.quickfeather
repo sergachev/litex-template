@@ -4,10 +4,11 @@ export QORC_SDK = $(realpath ./lib/qorc-sdk)
 
 soc_dir = build/$(litex_platform)
 soc = poetry run python lib/litex-boards/litex_boards/targets/$(litex_platform).py
-bitstream_file = $(soc_dir)/gateware/$(litex_platform).bin
-firmware_file = $(soc_dir)/software/bios/bios.bin
+bitstream_bin = $(soc_dir)/gateware/$(litex_platform).bin
+firmware_bin = $(soc_dir)/software/bios/bios.bin
+firmware_elf = $(soc_dir)/software/bios/bios.elf
 
-.DEFAULT_GOAL := $(firmware_file)
+.DEFAULT_GOAL := $(firmware_bin)
 .PHONY: prepare clean gateware flash
 
 .venv:
@@ -21,16 +22,24 @@ prepare:
 	# note: this is only to download/install tools, we don't need these environment modifications
 	cd lib/qorc-sdk && bash -c "source envsetup.sh"
 
-$(firmware_file): .venv
+$(firmware_bin): .venv
 	$(soc)
 
-$(bitstream_file): .venv
+$(firmware_elf): $(firmware_bin)
+
+$(bitstream_bin): .venv
 	PATH=$(QORC_SDK)/fpga_toolchain_install/v1.3.1/quicklogic-arch-defs/bin:$(QORC_SDK)/fpga_toolchain_install/v1.3.1/conda/bin:$(PATH) $(soc) --build; notify-send "done"
 
-gateware: $(bitstream_file)
+gateware: $(bitstream_bin)
 
-firmware: $(firmware_file)
+firmware: $(firmware_bin)
 
-flash: | $(bitstream_file) $(firmware_file)
+flash: | $(bitstream_bin) $(firmware_bin)
 	poetry run python $(QORC_SDK)/TinyFPGA-Programmer-Application/tinyfpga-programmer-gui.py \
-	    --mode fpga-m4 --m4app $(firmware_file) --appfpga $(bitstream_file)
+	    --mode fpga-m4 --m4app $(firmware_bin) --appfpga $(bitstream_bin)
+
+openocd:
+	openocd -f scripts/s3_jlink_swd.cfg
+
+gdb: $(firmware_elf)
+	arm-none-eabi-gdb -ex 'target extended-remote :3333' $^
