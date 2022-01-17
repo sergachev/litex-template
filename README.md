@@ -3,7 +3,7 @@
 Various pieces and examples that are not in LiteX yet and a reproducible environment to build and use them.
 
 #### Features:
--  `LiteX`-related repositories are registered as git submodules so that their
+- `LiteX`-related repositories are registered as git submodules so that their
 exact versions are tracked
 - a `poetry` environment is used to keep your system and user Python environments clean,
 therefore you can have multiple such projects using different versions of `LiteX` 

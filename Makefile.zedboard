@@ -1,13 +1,13 @@
-serial_port = /dev/ttyACM0
 litex_platform = digilent_zedboard
 
 vivado = vivado -nojournal -nolog -mode batch
 soc_dir = build/$(litex_platform)
 soc = poetry run python lib/litex-boards/litex_boards/targets/$(litex_platform).py
-bitstream_file = build/$(litex_platform)/gateware/$(litex_platform).bit
+bitstream_file = $(soc_dir)/gateware/$(litex_platform).bit
+firmware_elf = $(soc_dir)/software/bios/bios.elf
 
-.DEFAULT_GOAL := $(soc_dir)/software/firmware/firmware.bin
-.PHONY: clean $(soc_dir)/software/firmware/firmware.bin
+.DEFAULT_GOAL := $(firmware_elf)
+.PHONY: clean $(firmware_elf)
 
 .venv:
 	poetry install
@@ -15,15 +15,17 @@ bitstream_file = build/$(litex_platform)/gateware/$(litex_platform).bit
 clean:
 	rm -rf build
 
-$(soc_dir)/software/firmware/firmware.bin: .venv
+$(firmware_elf): .venv
 	$(soc)
 
 $(bitstream_file): .venv
 	$(soc) --build && \
 	grep -i "All user specified timing constraints are met" $(soc_dir)/gateware/vivado.log; notify-send "done"
 
-boot: $(soc_dir)/software/firmware/firmware.bin
-	poetry run litex_term --serial-boot --kernel $< $(serial_port)
+gateware: $(bitstream_file)
 
-term:
-	poetry run litex_term $(serial_port)
+load: $(bitstream_file)
+	xsct scripts/ps7_boot.tcl \
+	build/$(litex_platform)/gateware/$(litex_platform).gen/sources_1/ip/Zynq/ps7_init.tcl \
+	$(firmware_elf) \
+	$(bitstream_file)
