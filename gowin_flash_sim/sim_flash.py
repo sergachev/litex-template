@@ -1,5 +1,4 @@
 import argparse
-import os
 from migen import *
 from migen.genlib.misc import WaitTimer
 from litex.soc.integration.builder import builder_args, builder_argdict, Builder
@@ -36,15 +35,19 @@ class SimSoC(SoCMini):
         bus = ahb.Interface()
         self.submodules += AHBFlash(bus)
 
-        platform.add_source(os.path.join(os.path.abspath(os.path.dirname(__file__)), "prim_sim.v"))
+        platform.add_sources('build', "prim_sim.v")
 
         wt = self.submodules.wt = WaitTimer(8)
+
+        loop_counter = Signal(10)
+        self.sync += If(loop_counter == 100, Finish())
 
         fsm = self.submodules.fsm = FSM()
         fsm.act('INIT',
                 NextValue(bus.sel, 1),
                 NextValue(bus.trans, ahb.TransferType.NONSEQUENTIAL),
                 NextValue(bus.addr, 0b1111111100001111001101),
+                NextValue(loop_counter, loop_counter + 1),
                 NextState('WAIT0')
                 )
         fsm.act('WAIT0', NextState('WAIT'))

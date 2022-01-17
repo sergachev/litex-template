@@ -16,6 +16,7 @@ repositories etc.
 - use `make gateware` to run a Vivado implementation or `make sim` to run a simulation
 - use `make boot` to load the compiled firmware over a serial port and get a serial terminal by means of litex_term
 - edit the SoC in `src/`; adjust targets in the `Makefile`; tweak `LiteX` cores in `lib/`
+- [Gowin AHB Flash access simulation](./gowin_flash_sim/README.md)
 
 #### External dependencies:
  - GNU Make
@@ -25,8 +26,8 @@ repositories etc.
  - For Arm cores: [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
  - For implementation on Xilinx FPGAs: [Xilinx Vivado](https://www.xilinx.com/support/download.html) (2020.2 to 2021.2 tested)
  - For implementation on Gowin FPGAs: [Gowin EDA](https://www.gowinsemi.com/en/support/download_eda/)
- - Verilator for simulation (see [LiteX readme](https://github.com/enjoy-digital/litex/#quick-start-guide) for additional requirements like `libjson-c`) - can be installed via [Homebrew](https://formulae.brew.sh/formula/verilator)
- - optional: [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases) - yosys for synthesis, OpenOCD and openFPGALoader for programming
+ - optional: [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases) - yosys for synthesis, OpenOCD and openFPGALoader for programming, verilator and gtkwave for simulations
+ - see [LiteX readme](https://github.com/enjoy-digital/litex/#quick-start-guide) for potential additional requirements like `json-c` and `libevent`
 
 RISC-V GNU toolchain, GNU Arm Embedded Toolchain, Vivado, Gowin EDA and OSS CAD Suite: add respective `bin` directories to `PATH`.
 
