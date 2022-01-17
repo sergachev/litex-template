@@ -16,7 +16,7 @@ repositories etc.
 - use `make gateware` to run a Vivado implementation or `make sim` to run a simulation
 - use `make boot` to load the compiled firmware over a serial port and get a serial terminal by means of litex_term
 - edit the SoC in `src/`; adjust targets in the `Makefile`; tweak `LiteX` cores in `lib/`
-- [Gowin AHB Flash access simulation](./gowin_flash_sim/README.md)
+- [Gowin AHB Flash access simulation](./gowin_flash_sim)
 
 #### External dependencies:
  - GNU Make
