@@ -1,4 +1,5 @@
 litex_platform = digilent_zedboard
+uboot_device_tree = zynq-zed
 
 vivado = vivado -nojournal -nolog -mode batch
 soc_dir = build/$(litex_platform)
@@ -6,7 +7,7 @@ soc = poetry run python lib/litex-boards/litex_boards/targets/$(litex_platform).
 bitstream_file = $(soc_dir)/gateware/$(litex_platform).bit
 firmware_elf = $(soc_dir)/software/bios/bios.elf
 
-.DEFAULT_GOAL := $(firmware_elf)
+.DEFAULT_GOAL := build/boot.bin
 .PHONY: clean $(firmware_elf)
 
 .venv:
@@ -14,6 +15,7 @@ firmware_elf = $(soc_dir)/software/bios/bios.elf
 
 clean:
 	rm -rf build
+	make -C lib/u-boot clean
 
 $(firmware_elf): .venv
 	$(soc)
@@ -21,6 +23,23 @@ $(firmware_elf): .venv
 $(bitstream_file): .venv
 	$(soc) --build && \
 	grep -i "All user specified timing constraints are met" $(soc_dir)/gateware/vivado.log; notify-send "done"
+	test -f $@
+
+lib/u-boot/.config:
+	make -C $(@D) ARCH=arm xilinx_zynq_virt_defconfig
+
+lib/u-boot/spl/boot.bin:
+	make -C $(@D) ARCH=arm DEVICE_TREE=$(uboot_device_tree) CROSS_COMPILE=arm-none-linux-gnueabihf- -j
+
+build/$(litex_platform)/boot.scr.uimg: $(litex_platform)/boot.scr
+	./lib/u-boot/tools/mkimage -C none -A arm -T script -d $< $@
+
+/lib/zynq-mkbootimage/mkbootimage:
+	cd $(@D) && make
+
+build/boot.bin: $(litex_platform)/boot.bif lib/u-boot/spl/boot.bin $(bitstream_file) lib/u-boot/u-boot.img build/$(litex_platform)/boot.scr.uimg build/digilent_zedboard/software/bios/bios.bin
+	#./lib/zynq-mkbootimage/mkbootimage $< $@
+	bootgen -arch zynq -image $< -w -o i $@
 
 gateware: $(bitstream_file)
 

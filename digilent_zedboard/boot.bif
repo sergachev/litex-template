@@ -1,0 +1,7 @@
+img: {
+	[offset=0x0, bootloader] lib/u-boot/spl/boot.bin
+	[offset=0x100000] lib/u-boot/u-boot.img
+	build/digilent_zedboard/gateware/digilent_zedboard.bit
+	[offset=0x300000] build/digilent_zedboard/boot.scr.uimg
+	[offset=0x340000] build/digilent_zedboard/software/bios/bios.bin
+}

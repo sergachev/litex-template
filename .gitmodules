@@ -57,3 +57,6 @@
 	url = https://github.com/QuickLogic-Corp/qorc-sdk.git
 	shallow = true
 
+[submodule "lib/u-boot"]
+	path = lib/u-boot
+	url = https://github.com/u-boot/u-boot
