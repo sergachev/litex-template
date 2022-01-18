@@ -60,3 +60,6 @@
 [submodule "lib/u-boot"]
 	path = lib/u-boot
 	url = https://github.com/u-boot/u-boot
+[submodule "lib/armbin2elf"]
+	path = lib/armbin2elf
+	url = https://github.com/majbthrd/armbin2elf
