@@ -13,10 +13,11 @@ repositories etc.
 
 #### How to use:
 - clone this repository **recursively**
-- use `make gateware` to run a Vivado implementation or `make sim` to run a simulation
-- use `make boot` to load the compiled firmware over a serial port and get a serial terminal by means of litex_term
-- edit the SoC in `src/`; adjust targets in the `Makefile`; tweak `LiteX` cores in `lib/`
+- check the dependencies below
+- build complete Zedboard QSPI boot image: `make -f Makefile.zedboard`; flash with `program_flash` from Vitis or using U-Boot (description coming soon)
+- build and flash complete Quickfeather boot images: `make -f Makefile.quickfeather flash`
 - [Gowin AHB Flash access simulation](./gowin_flash_sim)
+- other SoC/software/simulation examples in src: new description coming soon
 
 #### External dependencies:
  - GNU Make
