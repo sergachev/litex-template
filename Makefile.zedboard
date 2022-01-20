@@ -8,8 +8,10 @@ bitstream_file = $(soc_dir)/gateware/$(litex_platform).bit
 firmware_elf = $(soc_dir)/software/bios/bios.elf
 firmware_bin = $(soc_dir)/software/bios/bios.bin
 
-.DEFAULT_GOAL := build/boot.bin
-.PHONY: clean $(firmware_elf)
+.DEFAULT_GOAL := all
+.PHONY: all clean $(firmware_elf)
+
+all: build/qspi.bin build/$(litex_platform)/boot.scr
 
 .venv:
 	poetry install
@@ -36,13 +38,16 @@ lib/u-boot/u-boot.img: lib/u-boot/.config
 
 lib/u-boot/spl/u-boot-spl.bin: lib/u-boot/u-boot.img
 
-build/$(litex_platform)/boot.scr.uimg: $(litex_platform)/boot.scr
+build/$(litex_platform)/boot_qspi.scr: $(litex_platform)/boot_qspi.cmd
+	./lib/u-boot/tools/mkimage -C none -A arm -T script -d $< $@
+
+build/$(litex_platform)/boot.scr: $(litex_platform)/boot_sd.cmd
 	./lib/u-boot/tools/mkimage -C none -A arm -T script -d $< $@
 
 lib/zynq-mkbootimage/mkbootimage:
 	cd $(@D) && make
 
-build/boot.bin: $(litex_platform)/boot.bif $(bitstream_file) lib/u-boot/u-boot.img build/$(litex_platform)/boot.scr.uimg build/digilent_zedboard/software/bios/bios.bin lib/u-boot/spl/u-boot-spl.bin lib/zynq-mkbootimage/mkbootimage
+build/qspi.bin: $(litex_platform)/boot.bif $(bitstream_file) lib/u-boot/u-boot.img build/$(litex_platform)/boot_qspi.scr build/digilent_zedboard/software/bios/bios.bin lib/u-boot/spl/u-boot-spl.bin lib/zynq-mkbootimage/mkbootimage
 	./lib/zynq-mkbootimage/mkbootimage $< $@
 
 gateware: $(bitstream_file)
@@ -58,3 +63,8 @@ openocd:
 
 gdb: $(firmware_elf)
 	arm-none-eabi-gdb -ex 'target extended-remote :3333' $^
+
+flash: build/qspi.bin
+	xsct scripts/ps7_flash.tcl \
+	build/$(litex_platform)/gateware/$(litex_platform).gen/sources_1/ip/Zynq/ps7_init.tcl \
+	$<

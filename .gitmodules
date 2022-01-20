@@ -66,3 +66,6 @@
 [submodule "lib/zynq-mkbootimage"]
 	path = lib/zynq-mkbootimage
 	url = https://github.com/antmicro/zynq-mkbootimage.git
+[submodule "lib/zynq_flash"]
+	path = lib/zynq_flash
+	url = https://github.com/raczben/zynq_flash.git

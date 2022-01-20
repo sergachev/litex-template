@@ -14,23 +14,20 @@ repositories etc.
 #### How to use:
 - clone this repository **recursively**
 - check the dependencies below
-- build complete Zedboard QSPI boot image: `make -f Makefile.zedboard`; flash with `program_flash` from Vitis or using U-Boot (description coming soon)
-- build and flash complete Quickfeather boot images: `make -f Makefile.quickfeather flash`
-- [Gowin AHB Flash access simulation](./gowin_flash_sim)
-- other SoC/software/simulation examples in src: new description coming soon
+- use one of the following:
+  - A complete (gateware + Cortex-A9 firmware) workflow for Zynq-7000 demonstrated on [Digilent Zedboard](./digilent_zedboard)
+  - Quicklogic Quickfeather - build and flash complete (gateware + Cortex-M4 firmware) boot images: `make -f Makefile.quickfeather flash`
+  - [Gowin AHB Flash access simulation](./gowin_flash_sim) with LiteX and Verilator
+  - other SoC/software/simulation examples in src: new description coming soon
 
-#### External dependencies:
- - GNU Make
- - Python 3.9+
- - [poetry](https://python-poetry.org/)
+#### External dependencies - have to be in `PATH`:
+ - GNU Make; Python 3.9+; [poetry](https://python-poetry.org/)
  - For RISC-V cores: [RISC-V GNU toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain/releases)
  - For all Arm cores: [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
- - For Zynq to build U-Boot: [GNU Toolchain for the A-profile Architecture](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads)
- - For implementation on Xilinx FPGAs: [Xilinx Vivado](https://www.xilinx.com/support/download.html) (2020.2 to 2021.2 tested)
- - For implementation on Gowin FPGAs: [Gowin EDA](https://www.gowinsemi.com/en/support/download_eda/)
+ - For Xilinx Zynq to build U-Boot: [GNU Toolchain for the A-profile Architecture](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads)
+ - For implementation on Xilinx devices: [Xilinx Vivado](https://www.xilinx.com/support/download.html) (2020.2 to 2021.2 tested)
+ - For implementation on Gowin devices: [Gowin EDA](https://www.gowinsemi.com/en/support/download_eda/)
  - optional: [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases) - yosys for synthesis, OpenOCD and openFPGALoader for programming, verilator and gtkwave for simulations
  - see [LiteX readme](https://github.com/enjoy-digital/litex/#quick-start-guide) for potential additional requirements like `json-c` and `libevent`
-
-RISC-V GNU toolchain, GNU Arm Embedded Toolchain, GNU Toolchain for the A-profile Architecture, Vivado, Gowin EDA and OSS CAD Suite: add respective `bin` directories to `PATH`.
 
 Tested on Ubuntu 20.04.
