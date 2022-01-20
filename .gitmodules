@@ -63,3 +63,6 @@
 [submodule "lib/armbin2elf"]
 	path = lib/armbin2elf
 	url = https://github.com/majbthrd/armbin2elf
+[submodule "lib/zynq-mkbootimage"]
+	path = lib/zynq-mkbootimage
+	url = https://github.com/antmicro/zynq-mkbootimage.git

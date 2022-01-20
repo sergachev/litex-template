@@ -39,14 +39,11 @@ lib/u-boot/spl/u-boot-spl.bin: lib/u-boot/u-boot.img
 build/$(litex_platform)/boot.scr.uimg: $(litex_platform)/boot.scr
 	./lib/u-boot/tools/mkimage -C none -A arm -T script -d $< $@
 
-lib/armbin2elf/armbin2elf:
+lib/zynq-mkbootimage/mkbootimage:
 	cd $(@D) && make
 
-build/spl.elf: ./lib/u-boot/spl/u-boot-spl.bin lib/armbin2elf/armbin2elf
-	./lib/armbin2elf/armbin2elf $@ 0 $< 0
-
-build/boot.bin: $(litex_platform)/boot.bif $(bitstream_file) lib/u-boot/u-boot.img build/$(litex_platform)/boot.scr.uimg build/digilent_zedboard/software/bios/bios.bin build/spl.elf
-	bootgen -arch zynq -image $< -w -o i $@
+build/boot.bin: $(litex_platform)/boot.bif $(bitstream_file) lib/u-boot/u-boot.img build/$(litex_platform)/boot.scr.uimg build/digilent_zedboard/software/bios/bios.bin lib/u-boot/spl/u-boot-spl.bin lib/zynq-mkbootimage/mkbootimage
+	./lib/zynq-mkbootimage/mkbootimage $< $@
 
 gateware: $(bitstream_file)
 

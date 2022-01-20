@@ -1,5 +1,5 @@
 img: {
-	[bootloader] build/spl.elf
+	[bootloader] lib/u-boot/spl/u-boot-spl.bin
 	[offset=0x100000] lib/u-boot/u-boot.img
 	[offset=0x300000] build/digilent_zedboard/gateware/digilent_zedboard.bit
 	[offset=0x400000] build/digilent_zedboard/software/bios/bios.bin
