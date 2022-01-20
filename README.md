@@ -16,7 +16,8 @@ repositories etc.
 - check the dependencies below
 - use one of the following:
   - A complete (gateware + Cortex-A9 firmware) workflow for Zynq-7000 demonstrated on [Digilent Zedboard](./digilent_zedboard)
-  - Quicklogic Quickfeather - build and flash complete (gateware + Cortex-M4 firmware) boot images: `make -f Makefile.quickfeather flash`
+  - Quicklogic Quickfeather - build and flash complete (gateware + BIOS on Cortex-M4) boot images: 
+    `make -f Makefile.quickfeather flash`; serial terminal is on pins J3.2/J3.3
   - [Gowin AHB Flash access simulation](./gowin_flash_sim) with LiteX and Verilator
   - other SoC/software/simulation examples in src: new description coming soon
 
