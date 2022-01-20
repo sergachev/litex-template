@@ -23,9 +23,9 @@ repositories etc.
 #### External dependencies - have to be in `PATH`:
  - GNU Make; Python 3.9+; [poetry](https://python-poetry.org/)
  - For RISC-V cores: [RISC-V GNU toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain/releases)
- - For all Arm cores: [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
- - For Xilinx Zynq to build U-Boot: [GNU Toolchain for the A-profile Architecture](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads)
- - For implementation on Xilinx devices: [Xilinx Vivado](https://www.xilinx.com/support/download.html) (2020.2 to 2021.2 tested)
+ - For all Arm cores: [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads) - 10.3-2021.10 tested
+ - For Xilinx Zynq to build U-Boot: [GNU Toolchain for the A-profile Architecture](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads) - 2021.07 tested
+ - For implementation on Xilinx devices: [Xilinx Vivado](https://www.xilinx.com/support/download.html) (2021.2 tested; for some Zynq-related tasks it is convenient to install it as Vitis configuration)
  - For implementation on Gowin devices: [Gowin EDA](https://www.gowinsemi.com/en/support/download_eda/)
  - optional: [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases) - yosys for synthesis, OpenOCD and openFPGALoader for programming, verilator and gtkwave for simulations
  - see [LiteX readme](https://github.com/enjoy-digital/litex/#quick-start-guide) for potential additional requirements like `json-c` and `libevent`

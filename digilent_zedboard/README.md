@@ -15,10 +15,11 @@ Howto:
    - build/digilent_zedboard/gateware/digilent_zedboard.bit **as fpga.bit**
    - build/digilent_zedboard/software/bios/bios.bin
  - option 2 - boot from QSPI flash: flash build/qspi.bin into board's memory one of these ways:
-   - with `make -f Makefile.zedboard` via [zynq_flash](https://github.com/raczben/zynq_flash) (uses `xsct` from Vitis)
-   - with `program_flash` - part of Vitis, needs FSBL binary
-   - with U-Boot `sf` command [link](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842223/U-boot#U-boot-ProgrammingQSPIFlash)
- - option 3 - boot from JTAG
+   - with `make -f Makefile.zedboard flash` via [zynq_flash](https://github.com/raczben/zynq_flash) (uses `xsct` from Vitis)
+   - with `make -f Makefile.zedboard flash2` - uses `program_flash` from Vitis, needs FSBL binary, one can be taken [here](https://digilent.com/reference/_media/zedboard/zedboard_oob_design.zip) (boot_image/zynq_fsbl.elf)
+   - with U-Boot `sf` command (to be described) [link](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842223/U-boot#U-boot-ProgrammingQSPIFlash)
+ - option 3 - boot from JTAG: `make -f Makefile.zedboard load` (uses `xsct` from Vitis)
+ - access the booted system via USB-Serial terminal
 
 Notes:
  - there is nearly nothing specific to Zedboard in the current implementation, 

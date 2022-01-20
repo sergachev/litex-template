@@ -68,3 +68,6 @@ flash: build/qspi.bin
 	xsct scripts/ps7_flash.tcl \
 	build/$(litex_platform)/gateware/$(litex_platform).gen/sources_1/ip/Zynq/ps7_init.tcl \
 	$<
+
+flash2: build/qspi.bin
+	program_flash -f $< -flash_type qspi-x4-single -fsbl ./zynq_fsbl.elf
