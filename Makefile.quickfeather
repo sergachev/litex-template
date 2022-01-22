@@ -28,7 +28,7 @@ $(firmware_bin): .venv
 $(firmware_elf): $(firmware_bin)
 
 $(bitstream_bin): .venv
-	PATH=$(QORC_SDK)/fpga_toolchain_install/v1.3.1/quicklogic-arch-defs/bin:$(QORC_SDK)/fpga_toolchain_install/v1.3.1/conda/bin:$(PATH) $(soc) --build; notify-send "done"
+	PATH=$(QORC_SDK)/fpga_toolchain_install/v1.3.1/quicklogic-arch-defs/bin:$(QORC_SDK)/fpga_toolchain_install/v1.3.1/conda/bin:$(PATH) $(soc) --build
 
 gateware: $(bitstream_bin)
 

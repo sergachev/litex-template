@@ -27,7 +27,7 @@ $(firmware_bin): $(firmware_elf)
 
 $(bitstream_file): .venv
 	$(soc) --build && \
-	grep -i "All user specified timing constraints are met" $(soc_dir)/gateware/vivado.log; notify-send "done"
+	grep -i "All user specified timing constraints are met" $(soc_dir)/gateware/vivado.log
 	test -f $@
 
 lib/u-boot/.config:
