@@ -10,15 +10,16 @@ all: $(TARGET).bin
 # pull in dependency info for *existing* .o files
 -include $(OBJECTS:.o=.d)
 
-$(TARGET).elf: $(OBJECTS)
+$(TARGET).elf: $(OBJECTS) crt0.o
 	$(CC) $(LDFLAGS) \
 		-T $(FIRMWARE_DIRECTORY)/linker.ld \
 		-N -o $@ \
-		 ../libbase/crt0.o \
+		crt0.o \
 		$(OBJECTS) \
-		-L../libbase \
-		-L../libcompiler_rt \
-		-lbase-nofloat -lcompiler_rt
+		-Wl,--whole-archive \
+		-Wl,--gc-sections \
+		-Wl,-Map,$@.map \
+		-L ../libbase -L ../libc -lbase -lc
 	chmod -x $@
 
 %.bin: %.elf
@@ -29,6 +30,8 @@ ifeq ($(CPUENDIANNESS),little)
 else
 	$(PYTHON) -m litex.soc.software.mkmscimg $@ -o $(TARGET).fbi -f
 endif
+
+VPATH = $(FIRMWARE_DIRECTORY):$(CPU_DIRECTORY)
 
 %.o: $(FIRMWARE_DIRECTORY)/%.c
 	$(compile)

@@ -12,8 +12,8 @@ class BaseSoC(SoCCore):
     def __init__(self, platform, cpu, sim: bool, **kwargs):
         sys_clk_freq = int(1e9 / platform.default_clk_period)
         kwargs['with_uart'] = not sim
+        kwargs['cpu_type'] = cpu.name
         SoCCore.__init__(self, platform,
-                         cpu_type=cpu.name,
                          clk_freq=sys_clk_freq,
                          **kwargs)
         self.submodules.crg = CRG(platform.request(platform.default_clk_name))

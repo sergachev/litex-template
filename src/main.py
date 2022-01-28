@@ -4,7 +4,7 @@ import os
 from litex.soc.integration.common import get_mem_data
 from litex.soc.integration.soc_core import soc_core_args, soc_core_argdict
 from litex.soc.integration.builder import builder_args, builder_argdict, Builder
-from litex.soc.cores.cpu import VexRiscv
+from litex.soc.cores.cpu.vexriscv.core import VexRiscv
 from litex.build.sim.config import SimConfig
 
 import platform_xilinx
