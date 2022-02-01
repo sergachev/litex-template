@@ -18,3 +18,5 @@ jobs:
         run: make -f Makefile.quickfeather
       - name: Build LiteX BIOS for Tang Nano 4K
         run: poetry run python lib/litex-boards/litex_boards/targets/sipeed_tang_nano_4k.py --cpu-type=gowin_emcu
+      - name: Build LiteX BIOS for Zedboard
+        run: make -f Makefile.zedboard build/digilent_zedboard/software/bios/bios.bin
