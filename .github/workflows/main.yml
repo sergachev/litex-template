@@ -14,6 +14,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'recursive'
-
       - name: Build LiteX BIOS for QuickFeather
         run: make -f Makefile.quickfeather
+      - name: Build LiteX BIOS for Tang Nano 4K
+        run: poetry run python lib/litex-boards/litex_boards/targets/sipeed_tang_nano_4k.py --cpu-type=gowin_emcu
