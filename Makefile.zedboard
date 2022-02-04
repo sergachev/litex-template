@@ -1,8 +1,11 @@
 litex_platform = digilent_zedboard
 uboot_device_tree = zynq-zed
+uboot_defconfig = xilinx_zynq_virt_defconfig
 
 vivado = vivado -nojournal -nolog -mode batch
 soc_dir = build/$(litex_platform)
+uboot_build_dir = $(soc_dir)/software/u-boot
+uboot_src_dir = lib/u-boot
 soc = poetry run python lib/litex-boards/litex_boards/targets/$(litex_platform).py
 bitstream_file = $(soc_dir)/gateware/$(litex_platform).bit
 firmware_elf = $(soc_dir)/software/bios/bios.elf
@@ -17,8 +20,7 @@ all: $(soc_dir)/qspi.bin build/$(litex_platform)/boot.scr
 	poetry install
 
 clean:
-	rm -rf build
-	make -C lib/u-boot clean
+	rm -rf $(soc_dir)
 
 $(firmware_elf): .venv
 	$(soc)
@@ -30,24 +32,24 @@ $(bitstream_file): .venv
 	grep -i "All user specified timing constraints are met" $(soc_dir)/gateware/vivado.log
 	test -f $@
 
-lib/u-boot/.config:
-	make -C $(@D) ARCH=arm xilinx_zynq_virt_defconfig
+$(uboot_build_dir)/.config:
+	make -C $(uboot_src_dir) O=${CURDIR}/$(uboot_build_dir) ARCH=arm DEVICE_TREE=$(uboot_device_tree) CROSS_COMPILE=arm-none-linux-gnueabihf- $(uboot_defconfig)
 
-lib/u-boot/u-boot.img: lib/u-boot/.config
-	make -C $(@D) ARCH=arm DEVICE_TREE=$(uboot_device_tree) CROSS_COMPILE=arm-none-linux-gnueabihf- -j
+$(uboot_build_dir)/u-boot.img: $(uboot_build_dir)/.config
+	make -C $(uboot_src_dir) O=${CURDIR}/$(uboot_build_dir) ARCH=arm DEVICE_TREE=$(uboot_device_tree) CROSS_COMPILE=arm-none-linux-gnueabihf- -j
 
-lib/u-boot/spl/u-boot-spl.bin: lib/u-boot/u-boot.img
+$(uboot_build_dir)/spl/u-boot-spl.bin: $(uboot_build_dir)/u-boot.img
 
 build/$(litex_platform)/boot_qspi.scr: $(litex_platform)/boot_qspi.cmd
-	./lib/u-boot/tools/mkimage -C none -A arm -T script -d $< $@
+	$(uboot_build_dir)/tools/mkimage -C none -A arm -T script -d $< $@
 
 build/$(litex_platform)/boot.scr: $(litex_platform)/boot_sd.cmd
-	./lib/u-boot/tools/mkimage -C none -A arm -T script -d $< $@
+	$(uboot_build_dir)/tools/mkimage -C none -A arm -T script -d $< $@
 
 lib/zynq-mkbootimage/mkbootimage:
 	cd $(@D) && make
 
-$(soc_dir)/qspi.bin: $(litex_platform)/boot.bif $(bitstream_file) lib/u-boot/u-boot.img build/$(litex_platform)/boot_qspi.scr build/digilent_zedboard/software/bios/bios.bin lib/u-boot/spl/u-boot-spl.bin lib/zynq-mkbootimage/mkbootimage
+$(soc_dir)/qspi.bin: $(litex_platform)/boot.bif $(bitstream_file) $(uboot_build_dir)/u-boot.img build/$(litex_platform)/boot_qspi.scr build/digilent_zedboard/software/bios/bios.bin $(uboot_build_dir)/spl/u-boot-spl.bin lib/zynq-mkbootimage/mkbootimage
 	./lib/zynq-mkbootimage/mkbootimage $< $@
 
 gateware: $(bitstream_file)
