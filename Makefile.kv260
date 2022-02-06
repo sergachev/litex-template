@@ -9,7 +9,6 @@ uboot_src_dir = lib/u-boot
 soc = poetry run python lib/litex-boards/litex_boards/targets/$(litex_platform).py
 bitstream_file = $(soc_dir)/gateware/$(litex_platform).bit
 firmware_elf = $(soc_dir)/software/bios/bios.elf
-firmware_bin = $(soc_dir)/software/bios/bios.bin
 pmu_fw_elf = lib/zynqmp-pmufw-builder/pmufw.elf
 
 .DEFAULT_GOAL := all
@@ -26,8 +25,6 @@ clean:
 $(firmware_elf): .venv
 	$(soc)
 
-$(firmware_bin): $(firmware_elf)
-
 $(bitstream_file): .venv
 	$(soc) --no-compile-software --build && \
 	grep -i "All user specified timing constraints are met" $(soc_dir)/gateware/vivado.log
@@ -39,9 +36,12 @@ $(uboot_build_dir)/.config:
 $(uboot_build_dir)/u-boot.img: $(uboot_build_dir)/.config
 	make -C $(uboot_src_dir) O=${CURDIR}/$(uboot_build_dir) ARCH=arm DEVICE_TREE=$(uboot_device_tree) CROSS_COMPILE=aarch64-none-linux-gnu- -j
 
-$(uboot_build_dir)/spl/u-boot-spl.bin: $(uboot_build_dir)/u-boot.img
-
 gateware: $(bitstream_file)
+
+$(pmu_fw_elf):
+	cd $(@D) && \
+	./build.sh toolchain && \
+	./build.sh pmufw-build
 
 load: $(pmu_fw_elf) $(firmware_elf) $(bitstream_file)
 	xsct scripts/psu_boot.tcl \
