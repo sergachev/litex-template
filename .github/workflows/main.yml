@@ -20,3 +20,5 @@ jobs:
         run: poetry run python lib/litex-boards/litex_boards/targets/sipeed_tang_nano_4k.py --cpu-type=gowin_emcu
       - name: Build LiteX BIOS for Zedboard
         run: make -f Makefile.zedboard build/digilent_zedboard/software/bios/bios.bin
+      - name: Build LiteX BIOS for KV260
+        run: make -f Makefile.kv260
