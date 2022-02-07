@@ -1,0 +1,51 @@
+litex_platform = xilinx_kv260
+uboot_device_tree = zynqmp-smk-k26-revA
+uboot_defconfig = xilinx_zynqmp_virt_defconfig
+
+vivado = vivado -nojournal -nolog -mode batch
+soc_dir = build/$(litex_platform)
+uboot_build_dir = $(soc_dir)/software/u-boot
+uboot_src_dir = lib/u-boot
+soc = poetry run python lib/litex-boards/litex_boards/targets/$(litex_platform).py
+bitstream_file = $(soc_dir)/gateware/$(litex_platform).bit
+firmware_elf = $(soc_dir)/software/bios/bios.elf
+pmu_fw_elf = lib/zynqmp-pmufw-builder/pmufw.elf
+
+.DEFAULT_GOAL := all
+.PHONY: all clean $(firmware_elf)
+
+all: $(firmware_elf)
+
+.venv:
+	poetry install
+
+clean:
+	rm -rf $(soc_dir)
+
+$(firmware_elf): .venv
+	$(soc)
+
+$(bitstream_file): .venv
+	$(soc) --no-compile-software --build && \
+	grep -i "All user specified timing constraints are met" $(soc_dir)/gateware/vivado.log
+	test -f $@
+
+$(uboot_build_dir)/.config:
+	make -C $(uboot_src_dir) O=${CURDIR}/$(uboot_build_dir) ARCH=arm DEVICE_TREE=$(uboot_device_tree) CROSS_COMPILE=aarch64-none-linux-gnu- $(uboot_defconfig)
+
+$(uboot_build_dir)/u-boot.img: $(uboot_build_dir)/.config
+	make -C $(uboot_src_dir) O=${CURDIR}/$(uboot_build_dir) ARCH=arm DEVICE_TREE=$(uboot_device_tree) CROSS_COMPILE=aarch64-none-linux-gnu- -j
+
+gateware: $(bitstream_file)
+
+$(pmu_fw_elf):
+	cd $(@D) && \
+	./build.sh toolchain && \
+	./build.sh pmufw-build
+
+load: $(pmu_fw_elf) $(firmware_elf) $(bitstream_file)
+	xsct scripts/psu_boot.tcl \
+		$(pmu_fw_elf) \
+		build/$(litex_platform)/gateware/$(litex_platform).gen/sources_1/ip/ps/psu_init.tcl \
+		$(firmware_elf) \
+		$(bitstream_file)

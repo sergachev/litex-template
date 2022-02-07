@@ -54,7 +54,7 @@ $(soc_dir)/qspi.bin: $(litex_platform)/boot.bif $(bitstream_file) $(uboot_build_
 
 gateware: $(bitstream_file)
 
-load: $(bitstream_file)
+load: $(firmware_elf) $(bitstream_file)
 	xsct scripts/ps7_boot.tcl \
 	build/$(litex_platform)/gateware/$(litex_platform).gen/sources_1/ip/Zynq/ps7_init.tcl \
 	$(firmware_elf) \

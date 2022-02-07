@@ -69,3 +69,6 @@
 [submodule "lib/zynq_flash"]
 	path = lib/zynq_flash
 	url = https://github.com/raczben/zynq_flash.git
+[submodule "lib/zynqmp-pmufw-builder"]
+	path = lib/zynqmp-pmufw-builder
+	url = https://github.com/lucaceresoli/zynqmp-pmufw-builder.git
