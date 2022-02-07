@@ -16,6 +16,8 @@ repositories etc.
 - check the dependencies below
 - use one of the following:
   - A complete (gateware + Cortex-A9 firmware) workflow for Zynq-7000 demonstrated on [Digilent Zedboard](./digilent_zedboard)
+  - Xilinx KV260: build all required binaries and run LiteX gateware and BIOS on Zynq Ultrascale+ / Cortex-A53 via JTAG: 
+    `make -f Makefile.kv260 load`; use USB-serial terminal on the board (more detailed description coming)
   - Quicklogic Quickfeather - build and flash complete (gateware + BIOS on Cortex-M4) boot images: 
     `make -f Makefile.quickfeather flash`; serial terminal is on pins J3.2/J3.3
   - [Gowin AHB Flash access simulation](./gowin_flash_sim) with LiteX and Verilator
