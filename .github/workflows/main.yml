@@ -22,3 +22,5 @@ jobs:
         run: make -f Makefile.zedboard build/digilent_zedboard/software/bios/bios.bin
       - name: Build LiteX BIOS for KV260
         run: make -f Makefile.kv260
+      - name: Build LiteX BIOS for ZCU216
+        run: make -f Makefile.zcu216
