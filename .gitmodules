@@ -1,48 +1,15 @@
 [submodule "lib/litex"]
 	path = lib/litex
 	url = https://github.com/enjoy-digital/litex
-[submodule "lib/litevideo"]
-	path = lib/litevideo
-	url = https://github.com/enjoy-digital/litevideo
 [submodule "lib/litex-boards"]
 	path = lib/litex-boards
 	url = https://github.com/litex-hub/litex-boards.git
-[submodule "lib/migen"]
-	path = lib/migen
-	url = https://github.com/m-labs/migen
-[submodule "lib/litescope"]
-	path = lib/litescope
-	url = https://github.com/enjoy-digital/litescope
-[submodule "lib/litesdcard"]
-	path = lib/litesdcard
-	url = https://github.com/enjoy-digital/litesdcard
 [submodule "lib/litepcie"]
 	path = lib/litepcie
 	url = https://github.com/enjoy-digital/litepcie
-[submodule "lib/litejesd204b"]
-	path = lib/litejesd204b
-	url = https://github.com/enjoy-digital/litejesd204b
 [submodule "lib/liteiclink"]
 	path = lib/liteiclink
 	url = https://github.com/enjoy-digital/liteiclink
-[submodule "lib/liteeth"]
-	path = lib/liteeth
-	url = https://github.com/enjoy-digital/liteeth
-[submodule "lib/litedram"]
-	path = lib/litedram
-	url = https://github.com/enjoy-digital/litedram
-[submodule "lib/litesata"]
-	path = lib/litesata
-	url = https://github.com/enjoy-digital/litesata
-[submodule "lib/pythondata-cpu-vexriscv"]
-	path = lib/pythondata-cpu-vexriscv
-	url = https://github.com/litex-hub/pythondata-cpu-vexriscv
-[submodule "lib/pythondata-misc-tapcfg"]
-	path = lib/pythondata-misc-tapcfg
-	url = https://github.com/litex-hub/pythondata-misc-tapcfg
-[submodule "lib/pythondata-software-compiler_rt"]
-	path = lib/pythondata-software-compiler_rt
-	url = https://github.com/litex-hub/pythondata-software-compiler_rt
 [submodule "lib/litespi"]
 	path = lib/litespi
 	url = https://github.com/litex-hub/litespi.git
@@ -56,7 +23,6 @@
 	path = lib/qorc-sdk
 	url = https://github.com/QuickLogic-Corp/qorc-sdk.git
 	shallow = true
-
 [submodule "lib/u-boot"]
 	path = lib/u-boot
 	url = https://github.com/u-boot/u-boot
