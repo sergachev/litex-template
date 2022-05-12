@@ -9,7 +9,7 @@
 	url = https://github.com/enjoy-digital/litepcie
 [submodule "lib/liteiclink"]
 	path = lib/liteiclink
-	url = https://github.com/enjoy-digital/liteiclink
+	url = https://github.com/enjoy-digital/liteiclink.git
 [submodule "lib/litespi"]
 	path = lib/litespi
 	url = https://github.com/litex-hub/litespi.git
@@ -38,3 +38,6 @@
 [submodule "lib/zynqmp-pmufw-builder"]
 	path = lib/zynqmp-pmufw-builder
 	url = https://github.com/lucaceresoli/zynqmp-pmufw-builder.git
+[submodule "lib/litescope"]
+	path = lib/litescope
+	url = https://github.com/enjoy-digital/litescope.git
