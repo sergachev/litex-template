@@ -25,7 +25,7 @@ repositories etc.
 
 #### External dependencies - have to be in `PATH`:
  - GNU Make, [Ninja](https://ninja-build.org/), Python 3.9+, [poetry](https://python-poetry.org/) (Ubuntu 20.04 and similar: `apt install make ninja-build python3.9 python3-pip; pip install poetry`)
- - For RISC-V cores: [RISC-V GNU toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain/releases)
+ - For RISC-V cores: [RISC-V GNU toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain/releases) (riscv64-elf variant is usually fine)
  - For all 32-bit ARM cores: [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads) (arm-none-eabi) - 10.3-2021.10 tested
  - For 64-bit ZynqMP: [GNU Toolchain for the A-profile Architecture](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads) (aarch64-none-elf) - 10.3-2021.07 tested
  - For Xilinx Zynq(MP) to build U-Boot: [GNU Toolchain for the A-profile Architecture](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads) 
