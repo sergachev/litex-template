@@ -9,13 +9,28 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        poetry-version: ["latest", "main", "1.8.4"]
+        os: [ubuntu-22.04]
+    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run image
+        uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: View poetry --help
+        run: poetry --help  
       - name: Build LiteX BIOS for QuickFeather
-        run: make -f Makefile.quickfeather
+        run: echo make -f Makefile.quickfeather
       - name: Build LiteX BIOS for Tang Nano 4K
         run: poetry run python lib/litex-boards/litex_boards/targets/sipeed_tang_nano_4k.py --cpu-type=gowin_emcu
       - name: Build LiteX BIOS for Zedboard
