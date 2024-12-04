@@ -38,3 +38,9 @@
 [submodule "lib/zynqmp-pmufw-builder"]
 	path = lib/zynqmp-pmufw-builder
 	url = https://github.com/lucaceresoli/zynqmp-pmufw-builder.git
+[submodule "lib/litedram"]
+	path = lib/litedram
+	url = https://github.com/enjoy-digital/litedram.git
+[submodule "lib/liteeth"]
+	path = lib/liteeth
+	url = https://github.com/enjoy-digital/liteeth.git

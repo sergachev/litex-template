@@ -18,6 +18,9 @@ litex-boards = {path = "lib/litex-boards", develop = true}
 simplejson = "*"
 lxml = "*"
 tinyfpgab = "*"
+packaging = "^24.2"
+litedram = {path = "lib/litedram"}
+liteeth = {path = "lib/liteeth"}
 
 [build-system]
 requires = ["poetry>=1.1.5"]
