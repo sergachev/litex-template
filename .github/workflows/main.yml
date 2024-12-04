@@ -28,7 +28,9 @@ jobs:
         with:
           poetry-version: ${{ matrix.poetry-version }}
       - name: View poetry --help
-        run: poetry --help  
+        run: |
+          poetry --help  
+          poetry install --no-root
       - name: Build LiteX BIOS for QuickFeather
         run: echo make -f Makefile.quickfeather
       - name: Build LiteX BIOS for Tang Nano 4K
